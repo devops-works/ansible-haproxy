@@ -7,7 +7,7 @@
 - name: Adds PPA pinning to prevent upgrading to distribution version
   template:
     src: vbernat-haproxy-X.Y-pin-1000
-    dest: /etc/apt/preferences.d/vbernat-haproxy-{{ haproxy_major_minor }}-pin-1000
+    dest: /etc/apt/preferences.d/vbernat-haproxy-{{ haproxy_major_minor }}-pin-1000.conf
 
 - name: Installs haproxy
   apt:
