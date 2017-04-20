@@ -1,0 +1,38 @@
+- name: Adds vbernat PPA
+  apt_repository:
+    repo: "ppa:vbernat/haproxy-{{ haproxy_major_minor }}"
+    state: present
+    update_cache: yes
+
+- name: Adds PPA pinning to prevent upgrading to distribution version
+  template:
+    src: vbernat-haproxy-X.Y-pin-1000
+    dest: /etc/apt/preferences.d/vbernat-haproxy-{{ haproxy_major_minor }}-pin-1000
+
+- name: Installs haproxy
+  apt:
+    pkg: "haproxy={{ haproxy_major_minor }}.*"
+    state: installed
+  register: __haproxy_installed
+
+- name: Installs haptop & socat
+  apt: 
+    pkg: "{{ item }}"
+    state: latest
+  with_items:
+    - hatop
+    - socat
+
+- name: Adds default config
+  template: src='../templates/haproxy.cfg.j2' dest=/etc/haproxy/haproxy.cfg
+  notify: Restart haproxy
+  tags:
+    - config
+    - haproxy:config
+
+- name: Creates config fragments directory
+  file:
+    path: /etc/haproxy/conf.d
+    state: directory
+  notify: Restart haproxy
+

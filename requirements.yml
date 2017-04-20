@@ -1,0 +1,5 @@
+- name: ansible-ferm
+  src: https://github.com/leucos/ansible-ferm.git
+
+- name: ansible-sysctl
+  src: https://github.com/leucos/ansible-sysctl.git

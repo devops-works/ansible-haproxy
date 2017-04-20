@@ -1,0 +1,12 @@
+- name: Checks that stats are enabled and authentication is set
+  fail:
+    msg: "Please set haproxy_filter_allow_stats when haproxy_stats_enabled is set to true"
+  when: "haproxy_stats_enabled and not haproxy_filter_allow_stats"
+
+- name: Checks that stats are enabled and authentication is set
+  fail:
+    msg: "Please set haproxy_stats_username and haproxy_stats_password when haproxy_stats_enabled is set to true"
+  when: haproxy_stats_enabled and
+    (haproxy_stats_username is not defined or haproxy_stats_password is not defined)
+    or haproxy_stats_username == False
+    or haproxy_stats_password == False

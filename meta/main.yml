@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  author: Michel Blanc
+  description: HAProxy role for versions >= 1.7
+#  company:
+  license: MIT
+  min_ansible_version: 1.8
+  #
+  # Below are all platforms currently available. Just uncomment
+  # the ones that apply to your role. If you don't see your
+  # platform on this list, let us know and we'll get it added!
+  #
+  platforms:
+  - name: Ubuntu
+    versions:
+    - xenial
+  - name: Debian
+    versions:
+      - Jessie
+  categories:
+    - web
+
+dependencies: []
+

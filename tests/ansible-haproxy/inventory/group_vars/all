@@ -1,0 +1,6 @@
+ferm_ansible_controllers: [ '0.0.0.0/0' ]
+
+haproxy_filter_allow_stats: 0.0.0.0/0
+
+haproxy_stats_username: foo
+haproxy_stats_password: bar

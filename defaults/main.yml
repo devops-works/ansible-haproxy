@@ -1,0 +1,26 @@
+# Addresses to let in for the stats port
+# This should contain an IP ranges list
+haproxy_filter_allow_stats: false
+
+haproxy_global_maxconn: 0
+# Set haproxy_global_stats_socket to a path to enable
+haproxy_global_stats_socket: false
+
+# HAProxy major branch
+haproxy_major_minor: "1.7"
+
+# Stats interface configuration
+haproxy_stats_bind_interface: "*"
+haproxy_stats_description: HAproxy statistics
+haproxy_stats_enabled: true
+haproxy_stats_port: "8080"
+# Stats reload interval in seconds
+haproxy_stats_refresh: false
+haproxy_stats_username: false
+haproxy_stats_password: false
+
+haproxy_timeout_client: 31s
+haproxy_timeout_connect: 5s
+haproxy_timeout_http_request: 5s
+haproxy_timeout_server: 31s
+
