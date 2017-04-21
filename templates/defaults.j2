@@ -1,0 +1,22 @@
+################################################
+#                                              #
+#     FILE UNDER ANSIBLE CONFIG MANAGEMENT     #
+#                                              #
+#              keep hands away                 #
+#                                              #
+#  ansible-haproxy/templates/defaults.j2       #
+#                                              #
+################################################
+
+#
+# Defaults file for HAProxy
+#
+# This is sourced by both, the initscript and the systemd unit file, so do not
+# treat it as a shell script fragment.
+
+# Add extra flags here, see haproxy(1) for a few options
+#EXTRAOPTS="-de -m 16"
+
+CONFIG=/etc/haproxy/haproxy.cfg -f /etc/haproxy/conf.d/
+EXTRAOPTS=
+ENABLED=1 # enabled by default
