@@ -39,7 +39,7 @@
 - name: Adds system defaults
   template:
     src: defaults.j2
-    dest: /etc/defaults/haproxy
+    dest: /etc/default/haproxy
   notify: Restart haproxy
   tags:
     - config
