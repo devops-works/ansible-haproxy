@@ -23,7 +23,7 @@
     - hatop
     - socat
 
-- name: Adds default config
+- name: Adds main config
   template: src='../templates/haproxy.cfg.j2' dest=/etc/haproxy/haproxy.cfg
   notify: Restart haproxy
   tags:
@@ -36,3 +36,11 @@
     state: directory
   notify: Restart haproxy
 
+- name: Adds system defaults
+  template: 
+    src: defaults.cfg.j2
+    dest: /etc/defaults/haproxy
+  notify: Restart haproxy
+  tags:
+    - config
+    - haproxy:config
