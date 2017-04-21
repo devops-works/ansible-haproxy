@@ -37,8 +37,8 @@
   notify: Restart haproxy
 
 - name: Adds system defaults
-  template: 
-    src: defaults.cfg.j2
+  template:
+    src: defaults.j2
     dest: /etc/defaults/haproxy
   notify: Restart haproxy
   tags:
