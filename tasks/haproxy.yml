@@ -12,7 +12,7 @@
 - name: Installs haproxy
   apt:
     pkg: "haproxy={{ haproxy_major_minor }}.*"
-    state: installed
+    state: present
   register: __haproxy_installed
 
 - name: Installs haptop & socat
