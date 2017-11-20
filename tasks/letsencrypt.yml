@@ -1,0 +1,5 @@
+- name: Adds LUA answer script
+  template:
+    src: acme-http01-webroot.lua.j2
+    dest: /etc/haproxy/acme-http01-webroot.lua
+
