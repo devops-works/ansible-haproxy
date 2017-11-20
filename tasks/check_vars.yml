@@ -10,3 +10,9 @@
     (haproxy_stats_username is not defined or haproxy_stats_password is not defined)
     or haproxy_stats_username == False
     or haproxy_stats_password == False
+
+- name: Checks that email is set if LetsEncrypt is enabled
+  fail:
+    msg: "Please set haproxy_letsencrypt_email if you intend to use Lets Encrypt"
+  when: haproxy_letsencrypt_manage and not haproxy_letsencrypt_email
+

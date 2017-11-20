@@ -1,5 +1,29 @@
+- name: Creates certificate & lua dirs in haproxy config dir
+  file:
+    path: /etc/haproxy/{{ item }}
+    state: directory
+  with_items:
+    - certs
+    - lua
+
 - name: Adds LUA answer script
   template:
     src: acme-http01-webroot.lua.j2
-    dest: /etc/haproxy/acme-http01-webroot.lua
+    dest: /etc/haproxy/lua/acme-http01-webroot.lua
+
+- name: Adds renewal script
+  template:
+    src: cert-renewal-haproxy.bash.j2
+    dest: /usr/local/bin/cert-renewal-haproxy.bash
+    mode: 0770
+    owner: root
+    group: root
+
+- name: Adds logrotate script
+  template:
+    src: cert-renewal-haproxy.logrotate.j2
+    dest: /etc/logrotate.d/cert-renewal-haproxy
+    mode: 0644
+    owner: root
+    group: root
 

@@ -27,3 +27,5 @@ haproxy_timeout_server: 31s
 # Lets encrypt support
 haproxy_letsencrypt_manage: false
 haproxy_letsencrypt_webroot: /var/tmp
+haproxy_letsencrypt_email: false
+haproxy_letsencrypt_logfile: ""

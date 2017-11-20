@@ -9,7 +9,8 @@ This playbook will install haproxy 1.7+ and create multi config dir.
 It also deploys janeczku ACME validation LUA script if
 `haproxy_letsencrypt_manage` is set to yes. See
 https://github.com/janeczku/haproxy-acme-validation-plugin for more
-info.
+info. Note that lua script is installed in `/etc/haproxy/lua`, and certs
+in `/etc/haproxy/certs`.
 
 Requirements
 ------------
@@ -30,6 +31,9 @@ Role Variables
   - `haproxy_stats_password`: Stats password (no defaults, role will fail if `haproxy_stats_enable` is set and `haproxy_stats_password` is not set)
   - `haproxy_letsencrypt_manage`: set to true to install LUA acme validation script (default:false)
   - `haproxy_letsencrypt_webroot`: webroot to use for acme validation (default: /var/tmp)
+  - `haproxy_letsencrypt_email`: email for LetsEncrypt (default: _none_,
+    _mandatory_)
+  - haproxy_letsencrypt_logfile: logfile for renewal (default: none)
 
 Tags
 ----

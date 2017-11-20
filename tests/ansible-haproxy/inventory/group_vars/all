@@ -6,3 +6,6 @@ haproxy_stats_username: foo
 haproxy_stats_password: bar
 
 haproxy_letsencrypt_manage: true
+haproxy_letsencrypt_email: foo@example.com
+
+haproxy_letsencrypt_logfile: /tmp/log
