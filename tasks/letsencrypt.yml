@@ -1,3 +1,14 @@
+- name: Adds certbot PPA
+  apt_repository:
+    repo: "ppa:certbot/certbot"
+    state: present
+    update_cache: yes
+
+- name: Installs certbot
+  apt:
+    pkg: python-certbot
+    state: present
+
 - name: Creates certificate & lua dirs in haproxy config dir
   file:
     path: /etc/haproxy/{{ item }}
