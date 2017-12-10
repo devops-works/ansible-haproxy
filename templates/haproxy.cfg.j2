@@ -7,6 +7,10 @@ global
     # Leave pidfile even if it is present in defaults !
     pidfile /var/run/haproxy.pid
 
+{% if haproxy_letsencrypt_manage %}
+    lua-load /etc/haproxy/lua/acme-http01-webroot.lua
+{% endif %}
+
 defaults
     mode http
     option forwardfor{% if haproxy_forward_for_except is defined %} except {{ haproxy_forward_for_except }}
