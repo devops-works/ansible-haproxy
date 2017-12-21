@@ -28,4 +28,4 @@ haproxy_timeout_server: 31s
 haproxy_letsencrypt_manage: false
 haproxy_letsencrypt_webroot: /var/tmp
 haproxy_letsencrypt_email: false
-haproxy_letsencrypt_logfile: ""
+haproxy_letsencrypt_logfile: "/var/log/letsencrypt/letsencrypt.log"

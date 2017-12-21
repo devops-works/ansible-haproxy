@@ -17,6 +17,11 @@
     - certs
     - lua
 
+- name: Creates letsencrypt log dir
+  file:
+    path: "{{ haproxy_letsencrypt_logfile | dirname }}"
+    state: directory
+
 - name: Adds LUA answer script
   template:
     src: acme-http01-webroot.lua.j2
