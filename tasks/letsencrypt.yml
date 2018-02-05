@@ -13,7 +13,7 @@
 
 - name: Installs certbot
   apt:
-    pkg: python-certbot
+    pkg: certbot
     state: present
   when: __haproxy_le_python_certbot | failed
 
