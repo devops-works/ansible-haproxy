@@ -8,6 +8,14 @@
   apt:
     pkg: python-certbot
     state: present
+  ignore_errors: true
+  register: __haproxy_le_python_certbot
+
+- name: Installs certbot
+  apt:
+    pkg: python-certbot
+    state: present
+  when: __haproxy_le_python_certbot | failed
 
 - name: Creates certificate & lua dirs in haproxy config dir
   file:
