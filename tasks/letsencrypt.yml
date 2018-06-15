@@ -6,7 +6,7 @@
 
 - name: Installs certbot
   apt:
-    pkg: certbot
+    pkg: python-certbot
     state: present
 
 - name: Creates certificate & lua dirs in haproxy config dir
@@ -35,11 +35,7 @@
     owner: root
     group: root
 
-- name: Adds logrotate script
-  template:
-    src: cert-renewal-haproxy.logrotate.j2
-    dest: /etc/logrotate.d/cert-renewal-haproxy
-    mode: 0644
-    owner: root
-    group: root
-
+- name: Remove logrotate script
+  file:
+    path: /etc/logrotate.d/cert-renewal-haproxy
+    state: absent
