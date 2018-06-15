@@ -6,7 +6,7 @@
 
 - name: Installs certbot
   apt:
-    pkg: python-certbot
+    pkg: certbot
     state: present
 
 - name: Creates certificate & lua dirs in haproxy config dir
