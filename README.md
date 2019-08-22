@@ -2,7 +2,7 @@ haproxy Ansible playbook
 ========================
 
 [![Travis
-CI](http://img.shields.io/travis/leucos/ansible-haproxy.svg?style=flat)](http://travis-ci.org/erasme/ansible-haproxy)
+CI](http://img.shields.io/travis/devops-works/ansible-haproxy.svg?style=flat)](http://travis-ci.org/devops-works/ansible-haproxy)
 
 This playbook will install haproxy 1.7+ and create multi config dir.
 
