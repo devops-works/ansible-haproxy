@@ -17,14 +17,13 @@
 
 - name: Installs haptop & socat
   apt:
-    pkg: "{{ item }}"
+    pkg: socat
     state: latest
-  with_items:
-    - hatop
-    - socat
 
 - name: Adds main config
-  template: src='../templates/haproxy.cfg.j2' dest=/etc/haproxy/haproxy.cfg
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
   notify: Restart haproxy
   tags:
     - config
