@@ -15,7 +15,7 @@
     state: present
   register: __haproxy_installed
 
-- name: Installs haptop & socat
+- name: Installs socat
   apt:
     pkg: socat
     state: latest
