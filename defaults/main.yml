@@ -6,8 +6,8 @@ haproxy_global_maxconn: 0
 # Set haproxy_global_stats_socket to a path to enable
 haproxy_global_stats_socket: false
 
-# HAProxy major branch
-haproxy_major_minor: "1.7"
+# HAProxy major branch; uses OS default is not set
+# haproxy_major_minor: "1.7"
 
 # Stats interface configuration
 haproxy_stats_bind_interface: "*"
