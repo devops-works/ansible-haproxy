@@ -66,5 +66,5 @@
     content: |
       #!/bin/bash
       systemctl reload haproxy
-    dest: /etc/letsencrypt/renewal-hooks/post
+    dest: /etc/letsencrypt/renewal-hooks/post/10-haproxy.sh
   when: __le_hook_stat.stat.isdir is defined and __le_hook_stat.stat.isdir
