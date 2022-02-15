@@ -3,6 +3,7 @@
     repo: "ppa:certbot/certbot"
     state: present
     update_cache: yes
+  when: ansible_distribution == "Ubuntu"
 
 - name: Installs python-certbot
   apt:
