@@ -17,7 +17,7 @@
     pkg: certbot
     state: present
   ignore_errors: true
-  when: __haproxy_le_python_certbot | failed
+  when: __haproxy_le_python_certbot is failed
 
 - name: Creates certificate & lua dirs in haproxy config dir
   file:
