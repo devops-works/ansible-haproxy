@@ -12,11 +12,19 @@
     dest: /etc/apt/preferences.d/vbernat-haproxy-{{ haproxy_major_minor | regex_replace('\.', '_') }}-pin-1000
   when: ansible_distribution == "Ubuntu"
 
-- name: Installs haproxy
+- name: Installs haproxy (specific version)
   apt:
     pkg: "haproxy={{ haproxy_major_minor }}.*"
     state: present
   register: __haproxy_installed
+  when: haproxy_major_minor is defined
+
+- name: Installs haproxy (OS default version)
+  apt:
+    pkg: "haproxy"
+    state: present
+  register: __haproxy_installed
+  when: haproxy_major_minor is not defined
 
 - name: Installs socat
   apt:
