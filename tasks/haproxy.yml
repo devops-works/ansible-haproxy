@@ -1,13 +1,16 @@
+---
 - name: Adds vbernat PPA
   apt_repository:
     repo: "ppa:vbernat/haproxy-{{ haproxy_major_minor }}"
     state: present
     update_cache: yes
+  when: ansible_distribution == "Ubuntu"
 
 - name: Adds PPA pinning to prevent upgrading to distribution version
   template:
     src: vbernat-haproxy-X.Y-pin-1000
     dest: /etc/apt/preferences.d/vbernat-haproxy-{{ haproxy_major_minor | regex_replace('\.', '_') }}-pin-1000
+  when: ansible_distribution == "Ubuntu"
 
 - name: Installs haproxy
   apt:
