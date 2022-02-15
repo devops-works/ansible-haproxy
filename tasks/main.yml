@@ -18,10 +18,11 @@
     - always
 
 - include_tasks:
-    file: letsencrypt.yml
+    file: letsencrypt-lua.yml
     apply:
       tags:
         - haproxy
         - letsencrypt
   tags:
     - always
+  when: haproxy_letsencrypt_manage

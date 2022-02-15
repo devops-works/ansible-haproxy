@@ -54,3 +54,17 @@
   tags:
     - config
     - haproxy:config
+
+- name: Checks if renewal hook directory exists
+  stat:
+    path: /etc/letsencrypt/renewal-hooks/post
+  register: __le_hook_stat
+  
+
+- name: Adds renews script is directory exists
+  copy:
+    content: |
+      #!/bin/bash
+      systemctl reload haproxy
+    dest: /etc/letsencrypt/renewal-hooks/post
+  when: __le_hook_stat.stat.isdir is defined and __le_hook_stat.stat.isdir
