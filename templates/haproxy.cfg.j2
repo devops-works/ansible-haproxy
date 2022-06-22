@@ -6,7 +6,9 @@ global
 {% endif %}
     # Leave pidfile even if it is present in defaults !
     pidfile /var/run/haproxy.pid
-
+{% for entry in haproxy_global_section %}
+    {{ entry }}
+{% endfor %}
 {% if haproxy_letsencrypt_manage %}
     lua-load /etc/haproxy/lua/acme-http01-webroot.lua
 {% endif %}
@@ -23,7 +25,7 @@ defaults
     timeout server {{ haproxy_timeout_server }}
     # how long to wait for client to send complete headers
     timeout http-request {{ haproxy_timeout_http_request }}
-{%- for entry in haproxy_global_section %}
+{% for entry in haproxy_defaults_section %}
     {{ entry }}
 {% endfor %}
 

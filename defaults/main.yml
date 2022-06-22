@@ -6,8 +6,9 @@ haproxy_global_maxconn: 0
 # Set haproxy_global_stats_socket to a path to enable
 haproxy_global_stats_socket: false
 
-# Freeform global section configs
+# Freeform sections configs
 haproxy_global_section: []
+haproxy_defaults_section: []
 
 # HAProxy major branch; uses OS default is not set
 # haproxy_major_minor: "1.7"
