@@ -23,6 +23,9 @@ defaults
     timeout server {{ haproxy_timeout_server }}
     # how long to wait for client to send complete headers
     timeout http-request {{ haproxy_timeout_http_request }}
+{%- for entry in haproxy_global_section %}
+    {{ entry }}
+{% endfor %}
 
 {% if haproxy_stats_enabled %}
 listen admin
