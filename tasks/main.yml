@@ -1,6 +1,7 @@
 
 ---
-- include_tasks:
+- name: Include check_vars
+  include_tasks:
     file: check_vars.yml
     apply:
       tags:
@@ -9,7 +10,8 @@
   tags:
     - always
 
-- include_tasks:
+- name: Include haproxy
+  include_tasks:
     file: haproxy.yml
     apply:
       tags:
@@ -17,7 +19,8 @@
   tags:
     - always
 
-- include_tasks:
+- name: Include letsencrypt-lua
+  include_tasks:
     file: letsencrypt-lua.yml
     apply:
       tags:

@@ -1,5 +1,5 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "ubuntu/jammy64"
   config.vm.define "haproxy" do |haproxy|
   end
 
@@ -9,7 +9,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell",
     :path => "vagrant_specs.sh",
-    :upload_path => "/home/ubuntu/specs",
+    :upload_path => "/home/vagrant/specs",
     # change role name below
     :args => "--install ansible-haproxy"
 end
