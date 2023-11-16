@@ -3,7 +3,9 @@
     repo: "ppa:certbot/certbot"
     state: present
     update_cache: yes
+  ignore_errors: true
   when: ansible_distribution == "Ubuntu"
+  register: __haproxy_le_ppa_certbot
 
 - name: Installs python-certbot
   apt:
@@ -17,7 +19,7 @@
     pkg: certbot
     state: present
   ignore_errors: true
-  when: __haproxy_le_python_certbot is failed
+  when: __haproxy_le_python_certbot is failed or __haproxy_le_ppa_certbot is failed
 
 - name: Creates certificate & lua dirs in haproxy config dir
   file:
